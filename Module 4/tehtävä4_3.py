@@ -1,23 +1,22 @@
-num1 = input("Enter number: ")
-if not num1:
+num = float(input("Anna numero: "))
+if not num:
     print("t1")
 else:
-    float(num1)
-nummin  = num1
-nummax = num1
-#    num1 = float(input("Enter number: "))
-while num1:
-    if num1 > nummax:
-        nummax = num1
-        print("1")
-    elif num1 < nummin:
-        nummin = num1
-        print("2")
-    num1 = input("Enter number: ")
-    if not num1:
-        print("3")
-        print(f"pienin {nummax} ja suurin {nummax}")
-        break
-    else:
-        float(num1)
-        print("4")
+    float(num)
+    print("t2")
+nummax = num
+nummin = num
+print("t3")
+while num:
+    print("t4")
+    if float(num) > float(nummax):
+        nummax = num
+        print("t5")
+    elif float(num) < float(nummin):
+        nummin = num
+        print("t6")
+    print("t7")
+    num = input("Anna numero: ")
+    if not num:
+        print(f"Pienin numero on {nummin} ja suurin numero on {nummax}")
+        print("testi vika")
