@@ -1,4 +1,4 @@
-num = float(input("Anna numero: "))
+num = input("Anna numero: ")
 if not num:
     print("t1")
 else:
