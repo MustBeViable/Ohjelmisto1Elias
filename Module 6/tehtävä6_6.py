@@ -7,15 +7,13 @@ def pizzalaskuri(koko3,hinta3):
     koko3 = koko3 / 100
     tulos = hinta3/(math.pi * (koko3 / 2) ** 2)
     return tulos
-koko1 = float(input("Anna koko1: "))
-koko2 = float(input("Anna koko2: "))
-hinta1 = float(input("Anna hinta1: "))
-hinta2 = float(input("Anna hinta2: "))
+koko1 = float(input("Anna ensimmäisen pizzan halkaisija senttimetreinä: "))
+hinta1 = float(input("Anna ensimmäisen pizzan hinta: "))
+koko2 = float(input("Anna toisen pizzan halkaisija senttimetreinä: "))
+hinta2 = float(input("Anna toisen pizzan hinta: "))
 
-print(pizzalaskuri(koko1,hinta1))
-print(pizzalaskuri(koko2,hinta2))
 
 if pizzalaskuri(koko1,hinta1) < pizzalaskuri(koko2,hinta2):
-    print("Pizza 1 halvempi")
+    print(f"Ensimmäinen pizza on halvempi halvempi ({pizzalaskuri(koko1,hinta1): .4f} €/m^2 vert. {pizzalaskuri(koko2,hinta2): .4f} €/m^2")
 else:
-    print("Pizza 2 halvempi")
+    print(f"Toinen pizza on halvempi halvempi ({pizzalaskuri(koko2,hinta2): .4f} €/m^2 vert. {pizzalaskuri(koko1,hinta1): .4f} €/m^2)")
