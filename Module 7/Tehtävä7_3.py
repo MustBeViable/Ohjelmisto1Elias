@@ -9,12 +9,14 @@ lentoasemat = {}
 def lentoas(asema,ICAO):
     lentoasemat[asema] = ICAO
     return lentoasemat
-def kysymys(kyssari):
+def kysymys(kys):
     kyssari = input(
         "Jos haluat tallentaa uudet lentoasemantiedot, kirjoita TIEDOT. Jos haluat tarkastaa lentoaseman tiedot, "
         "kirjoita TARKASTA. Lopettaaksesi paina ENTER: ")
     return kyssari
-tulos = kysymys(tulos)
+tulos = kysymys(hei)
+print(tulos)
+print(kysymys(hei))
 if tulos == TIEDOT:
     asema1 = input("Anna: ")
     ICAO1 = input("Anna ICAO: ")
