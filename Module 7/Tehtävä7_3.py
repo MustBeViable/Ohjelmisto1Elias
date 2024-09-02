@@ -11,23 +11,26 @@ def lentoas(asema,ICAO):
     return lentoasemat
 def kysymys(kys):
     kyssari = input(
-        "Jos haluat tallentaa uudet lentoasemantiedot, kirjoita TIEDOT. Jos haluat tarkastaa lentoaseman tiedot, "
-        "kirjoita TARKASTA. Lopettaaksesi paina ENTER: ")
+        "Jos haluat tallentaa uudet lentoasemantiedot, kirjoita T. Jos haluat tarkastaa lentoaseman tiedot, "
+        "kirjoita A. Lopettaaksesi paina ENTER: ")
     return kyssari
+hei = 0
 tulos = kysymys(hei)
-print(tulos)
-print(kysymys(hei))
-if tulos == TIEDOT:
-    asema1 = input("Anna: ")
-    ICAO1 = input("Anna ICAO: ")
-    lentoas(asema1,ICAO1)
-    kysymys()
-elif tulos == TARKISTA:
-    num = input("Kerro hakemasi aseman nimi: ")
-    print(f"Aseman {num} ICAO koodi on {lentoasemat[num]}")
-    kysymys()
-elif not tulos:
-    print("")
+while tulos:
+    if tulos == "T":
+        print("T1")
+        asema1 = input("Anna lentoaseman nimi: ")
+        ICAO1 = input("Anna ICAO: ")
+        lentoas(asema1,ICAO1)
+        kysymys(hei)
+    elif tulos == "A":
+        print("T2")
+        num = input("Kerro hakemasi aseman nimi: ")
+        print(f"Aseman {num} ICAO koodi on {lentoasemat[num]}")
+        kysymys(hei)
+    elif not tulos:
+        print("T3")
 else:
+    print("T4")
     print("Tarkista antamasi syöte!")
-    kysymys()
+    kysymys(hei)
