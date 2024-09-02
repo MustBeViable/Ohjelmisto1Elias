@@ -27,4 +27,4 @@ while tulos:
         tulos = kysymys()
 else:
     print("Kiitti moi")
-    print(f"{lentoasemat}")
+    print(lentoasemat)
