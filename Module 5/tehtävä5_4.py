@@ -5,6 +5,8 @@
 names = []
 for name in range (5):
     nam = input("Anna: ")
+    if not nam:
+        break
     names.append(nam)
 for name in names:
     print(name)
