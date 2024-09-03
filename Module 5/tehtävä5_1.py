@@ -11,4 +11,5 @@ while luku >= maara:
     maara = maara + 1
 for number in numbers:
     tulos = tulos + number
+print(numbers)
 print(tulos)
