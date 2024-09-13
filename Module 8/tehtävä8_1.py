@@ -22,7 +22,7 @@ def town(city):
     #print(result)
     return result
 
-ICAO1 = input("It would be rather pleasant, if you would give me a ICAO: ")
+ICAO1 = input("It would be rather pleasant, if you would give me a ICAO -code my love: ")
 result1 = []
 result1 = town(ICAO1)
 #print(result1)
