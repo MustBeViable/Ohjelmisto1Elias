@@ -1,5 +1,3 @@
-from unittest import registerResult, result
-
 import mysql.connector
 
 yhteys = mysql.connector.connect(
@@ -17,11 +15,11 @@ yhteys = mysql.connector.connect(
 def town(city):
     sql = (f" SELECT airport.name, municipality"
            f" FROM airport"
-           f" WHERE ident = '{ICAO1}'")
+           f" WHERE ident = '{city}'")
     kursori = yhteys.cursor()
     kursori.execute(sql)
     result = kursori.fetchall()
-    print(result)
+    #print(result)
     return result
 
 ICAO1 = input("It would be rather pleasant, if you would give me a ICAO: ")
@@ -29,8 +27,13 @@ result1 = []
 result1 = town(ICAO1)
 #print(result1)
 #tuple = result1[0]
+    #erotetaan listan uloimmat listat
 #name, municipality = tuple
+    #muuttaa ylemmän listan arvot ja määrittää ne "name":n ja "municipality":n alle
 
-#print(f"Your given ICAO code ({ICAO1}) belongs to {name} and it is in {tuple}")
+#print(f"Your given ICAO code ({ICAO1}) belongs to {name} and it is in {municipality}")
 #print(f"Your given ICAO code ({ICAO1}) belongs to {tuple[0]} and it is in {tuple[1]}")
-print(f"Your given ICAO code ({ICAO1}) belongs to {result1[0][0]} and it is in {result1[0][1]}")
+print(f"Your given ICAO code ({ICAO1}) belongs to {result1[0][0]} and it is in {result1[0][1]}.\n"
+      f"Do whatever you like with this information!")
+    #Lista listan sisällä, jolloin eka [] määrittää mistä listatsta uloimmasta päin katsotaan ja toinen [] määrittää
+    #sen  sisältä
