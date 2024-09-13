@@ -3,6 +3,7 @@ from geopy import distance
 
 yhteys = mysql.connector.connect(
          host='localhost',
+         port=3306,
          database='flight_game',
          user='eliasellu',
          password='Koira123',
@@ -13,6 +14,9 @@ def cordinate(code):
     sql = (f" select latitude_deg, longitude_deg "
            f" from airport "
            f" where ident = '{code}'")
+    #kursori = yhteys.cursor(dictionary=true), muuttaa tuplen sijasta dictionaryks. Eli lista, jonka sisällä dictionary
+    #kantsii käyttä jos useampi select (vaikka select name, ident, id...) ja muuttamalla select arvoja ei muuta printtiä
+    #näi voi callaa avaimilla mm result['name']
     kursori = yhteys.cursor()
     kursori.execute(sql)
     result = kursori.fetchall()

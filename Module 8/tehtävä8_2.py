@@ -12,7 +12,7 @@ yhteys = mysql.connector.connect(
 # lentokenttien lukumäärät tyypeittäin. Esimerkiksi Suomen osalta tuloksena on saatava tieto siitä, että pieniä
 # lentokenttiä on 65 kappaletta, helikopterikenttiä on 15 kappaletta jne.
 
-def airport(airplane):
+def airport(countrycode):
     sql = (f" SELECT type, count(*)"
            f" FROM airport"
            f" where iso_country = '{countrycode}'"
