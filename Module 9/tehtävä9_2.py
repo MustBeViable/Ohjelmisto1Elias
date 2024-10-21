@@ -12,7 +12,6 @@ class Auto:
         self.CurrentSpeed = 0
         self.TravelledDistance = 0
     def Accele(self, Accelerate):
-        self.Accelerate = Accelerate
         if float(Accelerate) > 0:
             self.CurrentSpeed += Accelerate
             if self.CurrentSpeed >= self.MaxSpeed:
