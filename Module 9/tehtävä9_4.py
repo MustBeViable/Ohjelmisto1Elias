@@ -18,7 +18,7 @@ class Auto:
         self.MaxSpeed = MaxSpeed
         self.CurrentSpeed = 0
         self.TravelledDistance = 0
-    def Accele(self, Accelerate):
+    def accele(self, Accelerate):
         if float(Accelerate) > 0:
             self.CurrentSpeed += Accelerate
             if self.CurrentSpeed >= self.MaxSpeed:
@@ -29,7 +29,7 @@ class Auto:
                 self.CurrentSpeed = 0
         else:
             pass
-    def Move(self, hour):
+    def move(self, hour):
         self.TravelledDistance += self.CurrentSpeed * hour
     def __str__(self):
         return f"{self.Name}"
@@ -42,8 +42,8 @@ race_over = False
 
 while race_over == False:
     for i in range(len(cars)):
-        cars[i].Accele(random.randint(-15,10))
-        cars[i].Move(1)
+        cars[i].accele(random.randint(-15, 10))
+        cars[i].move(1)
     for i in range(len(cars)):
         if cars[i].TravelledDistance >= 10000:
             race_over = True

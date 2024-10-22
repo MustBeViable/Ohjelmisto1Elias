@@ -11,7 +11,7 @@ class Auto:
         self.MaxSpeed = MaxSpeed
         self.CurrentSpeed = 0
         self.TravelledDistance = 0
-    def Accele(self, Accelerate):
+    def accele(self, Accelerate):
         if float(Accelerate) > 0:
             self.CurrentSpeed += Accelerate
             if self.CurrentSpeed >= self.MaxSpeed:
@@ -24,9 +24,9 @@ class Auto:
             pass
 ferrari = Auto('ABC-123', 142)
 print(f"Rekisteritunnus {ferrari.PlateNumber}, huippunopeus {ferrari.MaxSpeed}, nykynen nopeus {ferrari.CurrentSpeed}")
-Accelerate = ferrari.Accele(30)
+Accelerate = ferrari.accele(30)
 print(f"Rekisteritunnus {ferrari.PlateNumber}, huippunopeus {ferrari.MaxSpeed}, nykynen nopeus {ferrari.CurrentSpeed}")
-Accelerate = ferrari.Accele(70)
+Accelerate = ferrari.accele(70)
 print(f"Rekisteritunnus {ferrari.PlateNumber}, huippunopeus {ferrari.MaxSpeed}, nykynen nopeus {ferrari.CurrentSpeed}")
-Accelerate = ferrari.Accele(50)
+Accelerate = ferrari.accele(50)
 print(f"Rekisteritunnus {ferrari.PlateNumber}, huippunopeus {ferrari.MaxSpeed}, nykynen nopeus {ferrari.CurrentSpeed}")

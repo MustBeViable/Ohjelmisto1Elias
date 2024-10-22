@@ -9,7 +9,7 @@ class Auto:
         self.MaxSpeed = MaxSpeed
         self.CurrentSpeed = 60
         self.TravelledDistance = 2000
-    def Accele(self, Accelerate):
+    def accele(self, Accelerate):
         self.Accelerate = Accelerate
         if float(Accelerate) > 0:
             self.CurrentSpeed += Accelerate
