@@ -44,6 +44,6 @@ class Building:
             self.elevator.append(elevator)
     def drive_elevators(self, elevator_number, floor):
         Elevator.move_to(self.elevator[elevator_number-1], floor)
-kasper = Building(1,10,2)
-kasper.drive_elevators(1,5)
-kasper.drive_elevators(2,6)
+house = Building(1, 10, 2)
+house.drive_elevators(1, 5)
+house.drive_elevators(2, 6)
