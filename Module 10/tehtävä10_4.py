@@ -74,7 +74,7 @@ while True:
     if pass_time % 10 == 0:
         race.race_situation(cars)
     race_over = race.race_status(cars, race_length)
-    if race_over == True:
+    if race_over:
+        race.race_situation(cars)
+        print("Kisa loppui!")
         break
-else:
-    race.race_situation(cars)
