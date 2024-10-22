@@ -38,7 +38,6 @@ cars = ["auto1", "auto2", "auto3", "auto4", "auto5", "auto6", "auto7", "auto8", 
 
 for i in range(len(cars)):
     cars[i] = Auto(cars[i],"ABC-"+ str(i + 1), random.randint(100,200))
-test =0
 race_over = False
 
 while race_over == False:
@@ -48,7 +47,6 @@ while race_over == False:
     for i in range(len(cars)):
         if cars[i].TravelledDistance >= 10000:
             race_over = True
-    test += 1
 print("Auto, rekisterinumero, huippunopeus, kokonaismatka")
 for i in range(len(cars)):
     print(f"{cars[i]}.   {cars[i].PlateNumber} | {cars[i].MaxSpeed:4.0f} | {cars[i].TravelledDistance:4.0f}")
