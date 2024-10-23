@@ -54,10 +54,15 @@ class Race:
         for i in range(len(self.list_of_cars)):
             Auto.move(self.list_of_cars[i],hour)
     def race_situation(self, list_of_cars):
-        print("Tämän hetkinen tilanne:")
+        print("\nTämän hetkinen tilanne:\n")
+        list_of_emojis = ["(❁´◡`❁)", "(●'◡'●)", "☆*: .｡. o(≧▽≦)o .｡.:*☆", "╰(*°▽°*)╯", "(┬┬﹏┬┬)", "UwU"]
         for i in range(len(list_of_cars)):
             print(f"Auton nimi: {list_of_cars[i]}.  Auton rekisterinumero {list_of_cars[i].platenumber} | Auton nopeus: "
-                  f"{list_of_cars[i].currentspeed:4.0f} | Auton kulkema matka {list_of_cars[i].travelleddistance:4.0f}")
+                  f"{list_of_cars[i].currentspeed:4.0f} | Auton kulkema matka {list_of_cars[i].travelleddistance:4.0f}\n")
+        print('"Yleisö hurraa"\n')
+        for i in range(10):
+            print(list_of_emojis[random.randint(0, len(list_of_emojis) - 1)], end=" ")
+        print("")
     def race_status(self, list_of_cars, length):
         for i in range(len(list_of_cars)):
             if length <= list_of_cars[i].travelleddistance:
@@ -76,5 +81,5 @@ while True:
     race_over = race.race_status(cars, race_length)
     if race_over:
         race.race_situation(cars)
-        print(f"Kisa loppui! Kisassa kesti {pass_time} tuntia.")
+        print(f"\nKisa loppui! Kisassa kesti {pass_time} tuntia.")
         break
