@@ -50,18 +50,22 @@ class Race:
             self.list_of_cars[i] = Auto(self.list_of_cars[i], "ABC-" + str(i + 1), random.randint(100, 200))
     def hour_pass(self, hour):
         for y in range(len(self.list_of_cars)):
-            Auto.accele(self.list_of_cars[y], random.randint(-10, 15))
+            Auto.accele(self.list_of_cars[y], random.randint(-15, 10))
         for i in range(len(self.list_of_cars)):
             Auto.move(self.list_of_cars[i],hour)
     def race_situation(self, list_of_cars):
         print("\nTämän hetkinen tilanne:\n")
         list_of_emojis = ["(❁´◡`❁)", "(●'◡'●)", "☆*: .｡. o(≧▽≦)o .｡.:*☆", "╰(*°▽°*)╯", "(┬┬﹏┬┬)", "UwU"]
+        list_of_emojis2 = ["😘", "😁", "😛", "😍", "🤩", "🧐", "🫣", "🤠"]
         for i in range(len(list_of_cars)):
             print(f"Auton nimi: {list_of_cars[i]}.  Auton rekisterinumero {list_of_cars[i].platenumber} | Auton nopeus: "
                   f"{list_of_cars[i].currentspeed:4.0f} | Auton kulkema matka {list_of_cars[i].travelleddistance:4.0f}\n")
         print('"Yleisö hurraa"\n')
         for i in range(10):
             print(list_of_emojis[random.randint(0, len(list_of_emojis) - 1)], end=" ")
+        print("")
+        for i in range(30):
+            print(list_of_emojis2[random.randint(0, len(list_of_emojis2) - 1)], end=" ")
         print("")
     def race_status(self, list_of_cars, length):
         for i in range(len(list_of_cars)):
