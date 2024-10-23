@@ -50,7 +50,7 @@ class Race:
             self.list_of_cars[i] = Auto(self.list_of_cars[i], "ABC-" + str(i + 1), random.randint(100, 200))
     def hour_pass(self, hour):
         for y in range(len(self.list_of_cars)):
-            Auto.accele(self.list_of_cars[y], random.randint(-15, 10))
+            Auto.accele(self.list_of_cars[y], random.randint(-10, 15))
         for i in range(len(self.list_of_cars)):
             Auto.move(self.list_of_cars[i],hour)
     def race_situation(self, list_of_cars):
@@ -76,5 +76,5 @@ while True:
     race_over = race.race_status(cars, race_length)
     if race_over:
         race.race_situation(cars)
-        print("Kisa loppui!")
+        print(f"Kisa loppui! Kisassa kesti {pass_time} tuntia.")
         break
