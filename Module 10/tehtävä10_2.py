@@ -13,11 +13,9 @@ class Elevator:
             self.move_down()
         while floor > self.floor:
             self.move_up()
-        while self.floor != self.lowest:
-            if floor > self.lowest:
-                self.move_down()
         else:
             print(f"Hissi on kerroksessa {self.floor}")
+
     def move_up(self):
         if self.floor >= self.highest:
             self.floor = self.highest
@@ -25,6 +23,7 @@ class Elevator:
         else:
             print(f"Hissi on kerroksessa {self.floor}")
             self.floor += 1
+
     def move_down(self):
         if self.floor <= self.lowest:
             self.floor = self.lowest
@@ -42,7 +41,9 @@ class Building:
         for i in range(elevator_count):
             elevator = Elevator(lowest, highest)
             self.elevator.append(elevator)
+
     def drive_elevators(self, elevator_number, floor):
+        print(f"Hissi {elevator_number} lähtee liikkeelle")
         Elevator.move_to(self.elevator[elevator_number-1], floor)
 house = Building(1, 10, 2)
 house.drive_elevators(1, 5)

@@ -7,26 +7,30 @@
 # autojen matkamittarilukemat.
 import random
 
+
 class Auto:
     def __init__(self, name, platenumber, maxspeed):
         self.name = name
         self.platenumber = platenumber
-        self.maxspeed = maxspeed
-        self.currentspeed = 0
-        self.travelleddistance = 0
-    def accele(self, accelerate):
+        self.max_speed = maxspeed
+        self.current_speed = 0
+        self.travelled_distance = 0
+
+    def accelerate(self, accelerate):
         if float(accelerate) > 0:
-            self.currentspeed += accelerate
-            if self.currentspeed >= self.maxspeed:
-                self.currentspeed = self.maxspeed
+            self.current_speed += accelerate
+            if self.current_speed >= self.max_speed:
+                self.current_speed = self.max_speed
         elif float(accelerate) < 0:
-            self.currentspeed += accelerate
-            if self.currentspeed < 0:
-                self.currentspeed = 0
+            self.current_speed += accelerate
+            if self.current_speed < 0:
+                self.current_speed = 0
         else:
             pass
+
     def move(self, hour):
-        self.travelleddistance += self.currentspeed * hour
+        self.travelled_distance += self.current_speed * hour
+
     def __str__(self):
         return f"{self.name}"
 
@@ -46,10 +50,10 @@ munttu = Gasoline('Munttu', "ACD-123", 165, 32.3)
 time = 0
 
 while time <= 3:
-    sakke.accele(random.randint(0,200))
-    munttu.accele(random.randint(9,11))
+    sakke.accelerate(random.randint(0, 200))
+    munttu.accelerate(random.randint(9, 11))
     sakke.move(1)
     munttu.move(1)
     time += 1
-print(sakke.travelleddistance)
-print(munttu.travelleddistance)
+print(f"{sakke.name} on liikkunut {sakke.travelled_distance} km.")
+print(f"{munttu.name} on liikkunut {munttu.travelled_distance} km.")

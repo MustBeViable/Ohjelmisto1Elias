@@ -11,20 +11,20 @@ class Elevator:
         self.lowest = lowest
         self.highest = highest
         self.floor = self.lowest
+
     def move_to(self, floor):
         while floor < self.floor:
             self.move_down()
         while floor > self.floor:
             self.move_up()
-        while self.floor != self.lowest:
-            if floor > self.lowest:
-                self.move_down()
+
     def move_up(self):
         if self.floor >= self.highest:
             self.floor = self.highest
         else:
             self.floor += 1
             print(f"Hissi on kerroksessa {self.floor}")
+
     def move_down(self):
         if self.floor <= self.lowest:
             self.floor = self.lowest
@@ -36,3 +36,4 @@ elevator = Elevator(1, 10)
 elevator.move_to(6)
 elevator.move_to(10)
 elevator.move_to(3)
+elevator.move_to(1)

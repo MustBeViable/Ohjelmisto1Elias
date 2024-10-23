@@ -22,25 +22,27 @@ import random
 class Auto:
     def __init__(self, name, platenumber, maxspeed):
         self.name = name
-        self.platenumber = platenumber
-        self.maxspeed = maxspeed
-        self.currentspeed = 0
-        self.travelleddistance = 0
+        self.plate_number = platenumber
+        self.max_speed = maxspeed
+        self.current_speed = 0
+        self.travelled_distance = 0
     def accele(self, accelerate):
         if float(accelerate) > 0:
-            self.currentspeed += accelerate
-            if self.currentspeed >= self.maxspeed:
-                self.currentspeed = self.maxspeed
+            self.current_speed += accelerate
+            if self.current_speed >= self.max_speed:
+                self.current_speed = self.max_speed
         elif float(accelerate) < 0:
-            self.currentspeed += accelerate
-            if self.currentspeed < 0:
-                self.currentspeed = 0
+            self.current_speed += accelerate
+            if self.current_speed < 0:
+                self.current_speed = 0
         else:
             pass
     def move(self, hour):
-        self.travelleddistance += self.currentspeed * hour
+        self.travelled_distance += self.current_speed * hour
     def __str__(self):
         return f"{self.name}"
+
+
 class Race:
     def __init__(self, name, length, list_of_cars):
         self.name = name
@@ -48,18 +50,21 @@ class Race:
         self.list_of_cars = list_of_cars
         for i in range(len(self.list_of_cars)):
             self.list_of_cars[i] = Auto(self.list_of_cars[i], "ABC-" + str(i + 1), random.randint(100, 200))
+
     def hour_pass(self, hour):
         for y in range(len(self.list_of_cars)):
-            Auto.accele(self.list_of_cars[y], random.randint(-15, 10))
+            Auto.accele(self.list_of_cars[y], random.randint(-10, 15))
         for i in range(len(self.list_of_cars)):
             Auto.move(self.list_of_cars[i],hour)
-    def race_situation(self, list_of_cars):
+
+    def race_situation(self):
+        list_of_cars = self.list_of_cars
         print("\nTämän hetkinen tilanne:\n")
         list_of_emojis = ["(❁´◡`❁)", "(●'◡'●)", "☆*: .｡. o(≧▽≦)o .｡.:*☆", "╰(*°▽°*)╯", "(┬┬﹏┬┬)", "UwU"]
         list_of_emojis2 = ["😘", "😁", "😛", "😍", "🤩", "🧐", "🫣", "🤠"]
         for i in range(len(list_of_cars)):
-            print(f"Auton nimi: {list_of_cars[i]}.  Auton rekisterinumero {list_of_cars[i].platenumber} | Auton nopeus: "
-                  f"{list_of_cars[i].currentspeed:4.0f} | Auton kulkema matka {list_of_cars[i].travelleddistance:4.0f}\n")
+            print(f"Auton nimi: {list_of_cars[i]}.  Auton rekisterinumero {list_of_cars[i].plate_number} | Auton nopeus: "
+                  f"{list_of_cars[i].current_speed:4.0f} | Auton kulkema matka {list_of_cars[i].travelled_distance:4.0f}\n")
         print('"Yleisö hurraa"\n')
         for i in range(10):
             print(list_of_emojis[random.randint(0, len(list_of_emojis) - 1)], end=" ")
@@ -67,23 +72,28 @@ class Race:
         for i in range(30):
             print(list_of_emojis2[random.randint(0, len(list_of_emojis2) - 1)], end=" ")
         print("")
-    def race_status(self, list_of_cars, length):
-        for i in range(len(list_of_cars)):
-            if length <= list_of_cars[i].travelleddistance:
-                race_over = True
-                return race_over
 
-cars = ["auto1", "auto2", "auto3", "auto4", "auto5", "auto6", "auto7", "auto8", "auto9", "auto10"]
-race_length = 8000
+    def race_status(self):
+        for i in self.list_of_cars:
+            if self.length <= i.travelled_distance:
+                return True
+
+        return False
+
+num = 10
+cars = []
+for i in range(num):
+    cars.append(f"Auton {i + 1}")
+race_length = 800000
 race = Race("Suuri romuralli", race_length, cars)
 pass_time = 0
 while True:
     race.hour_pass(1)
     pass_time += 1
     if pass_time % 10 == 0:
-        race.race_situation(cars)
-    race_over = race.race_status(cars, race_length)
+        race.race_situation()
+    race_over = race.race_status()
     if race_over:
-        race.race_situation(cars)
+        race.race_situation()
         print(f"\nKisa loppui! Kisassa kesti {pass_time} tuntia.")
         break
